@@ -13,10 +13,10 @@ const renderCartItem = (cartItems, onClick) =>
 
 const Cart = ({selectedItems, onClickCartItem, subTotal, taxes, delivery, total}) => {
   return (
-    <div class="cart">
-      <div class="card">
-        <div class="card-body">
-          <span class="cart--title">Cart</span>
+    <div className="cart">
+      <div className="card">
+        <div className="card-body">
+          <span className="cart--title">Cart</span>
           <hr />
           {
             renderCartItem(selectedItems, onClickCartItem)

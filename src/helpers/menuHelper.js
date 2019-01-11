@@ -1,4 +1,4 @@
-const getSelectedItem = (/* params */) => {
+const getSelectedItem = (menuItems, id) => {
   /* this function will iterate over every menu item within a menu section */
   /* and filter the menu item for a given menu item id */
 }
