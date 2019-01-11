@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MenuItem from './MenuItem';
 
-const renderMenuItems = (menuItems, onClickMenuItem) => 
+const renderMenuItems = (menuItems, onClick) => 
   menuItems.map(menuItem =>
     <MenuItem
       key={menuItem.id}
@@ -10,12 +10,12 @@ const renderMenuItems = (menuItems, onClickMenuItem) =>
       title={menuItem.title}
       description={menuItem.description}
       price={menuItem.price}
-      onClick={onClickMenuItem}
+      onClick={onClick}
     />
   );
 
 const MenuSection = ({ id, title, description, menuItems, onClickMenuItem }) => {
-  if ( id && title && description && menuItems && onClickMenuItem )
+  if ( id && title && description && menuItems && menuItems.length >= 1 && onClickMenuItem ) {
     return (
       <div className="menu_section">
         <div className="menu_section--header">
@@ -38,6 +38,7 @@ const MenuSection = ({ id, title, description, menuItems, onClickMenuItem }) => 
         </div>
       </div>
     );
+  }
   return null;
 };
 
