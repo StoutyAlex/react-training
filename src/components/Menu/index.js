@@ -13,7 +13,7 @@ const renderMenuSections = (menuSections, onClickMenuItem) =>
   ));
 
 const Menu = ({ id, title, address, imgUrl, reviews, rating, menuSections, onClickMenuItem }) => {
-  if (id && title && address && imgUrl && reviews && rating && menuSections && onClickMenuItem) {
+  if (id && title && address && imgUrl && reviews && rating && menuSections && menuSections.length >= 1 && onClickMenuItem) {
     return (
       <div className="restaurant">
         <MenuHeader

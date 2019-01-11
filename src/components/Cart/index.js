@@ -3,28 +3,45 @@ import PropTypes from 'prop-types';
 import CartItem from './CartItem';
 import CartTotals from './CartTotals';
 
-const renderCartItems = (/* cartItems */) => {
-  // return list of CartItem components
-}
+const renderCartItem = (cartItems, onClick) => 
+  cartItems.map(cartItem => 
+    <CartItem
+      key={cartItem.id}
+      {...cartItem}
+      onClick={onClick}
+    />);
 
-const Cart = (/* props object */) => {
-  /* bind the data from the props object to the html template */
-  /* validate the props and render the component IF valid ELSE null */
-  /* remember to call renderCartItems() to render a list of CartItem components */
-  /* also render the CartTotal component and pass the required props */
-  /* replace the bottom return statement with the populated html template */
+const Cart = ({selectedItems, onClickCartItem, subTotal, taxes, delivery, total}) => {
   return (
-    <div>
-      Cart Component
+    <div class="cart">
+      <div class="card">
+        <div class="card-body">
+          <span class="cart--title">Cart</span>
+          <hr />
+          {
+            renderCartItem(selectedItems, onClickCartItem)
+          }
+          <CartTotals
+            subTotal={subTotal}
+            total={total}
+            taxes={taxes}
+            delivery={delivery}
+          />
+        </div>
+      </div>
     </div>
   );
 };
 
-/* display name for the component */
 Cart.displayName = 'Cart';
 
 Cart.propTypes = {
-  /* add Proptypes here */
+  subTotal: PropTypes.number.isRequired,
+  taxes: PropTypes.number.isRequired,
+  delivery: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  selectedItems: PropTypes.array.isRequired,
+  onClickCartItem: PropTypes.func.isRequired,
 };
 
 export default Cart;

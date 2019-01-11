@@ -50,7 +50,7 @@ exports[`MenuSection Component when props are valid should render snapshot of th
       description="Description 1"
       id="I1"
       key="I1"
-      onClick={[Function]}
+      onClick={[MockFunction]}
       price={4.99}
       title="Title 1"
     />
@@ -58,7 +58,7 @@ exports[`MenuSection Component when props are valid should render snapshot of th
       description="Description 2"
       id="I2"
       key="I2"
-      onClick={[Function]}
+      onClick={[MockFunction]}
       price={6.49}
       title="Title 2"
     />

@@ -10,9 +10,9 @@ exports[`Menu Header Component when props are valid should render snapshot of th
     <img
       alt="Menu title"
       className="mr-3"
-      height={100}
+      height="100"
       src="https://google.com"
-      width={120}
+      width="120"
     />
   </div>
   <div
@@ -41,10 +41,10 @@ exports[`Menu Header Component when props are valid should render snapshot of th
           ignoreInlineStyles={false}
           numberOfStars={5}
           rating={2.5}
-          starDimension="20px"
+          starDimension="25px"
           starEmptyColor="rgb(203, 211, 227)"
           starHoverColor="rgb(230, 67, 47)"
-          starRatedColor="red"
+          starRatedColor="gold"
           starSpacing="1px"
           svgIconPath="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
           svgIconViewBox="0 0 51 48"

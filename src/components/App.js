@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Cart from './Cart';
+import CartItem from './Cart/CartItem';
+import CartTotals from './Cart/CartTotals';
 import Menu from './Menu';
 import data from '../assets/data';
 import menuHelper from '../helpers/menuHelper';
@@ -37,7 +39,32 @@ class App extends Component {
     /* return the populated app template and replace the bottom return statement */
     return (
       <div className="container">
-        <Menu {...data} onClickMenuItem={() => {}}/>
+        {/* <Menu {...data} onClickMenuItem={() => {}}/> */}
+        {/* <CartItem
+          id='S10'
+          title="Test"
+          price={10}
+          onClick={() => console.log('Cart item')}
+        /> */}
+        <Cart
+          subTotal={10}
+          taxes={1}
+          delivery={0}
+          total={11}
+          selectedItems={[{
+            id: "1",
+            title: "Something",
+            price: 4.99,
+            onClick: () => {}
+          }]}
+          onClickCartItem={() => {}}
+        />
+        {/* <CartTotals
+          subTotal={10}
+          taxes={1}
+          delivery={0}
+          total={11}
+        /> */}
       </div>
     );
   }
