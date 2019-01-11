@@ -1,31 +1,50 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-/* external library to render the stars for ratings */
-/* https://www.npmjs.com/package/react-star-ratings */
 import MenuHeader from './MenuHeader';
 import MenuSection from './MenuSection';
 
-const renderMenuSections = (/* params */) => {
-  /* map through the menu sections and return a list of MenuSection components */
+const renderMenuSections = (menuSections, onClickMenuItem) => 
+  menuSections.map(menuSection => (
+    <MenuSection
+      {...menuSection}
+      onClickMenuItem={onClickMenuItem}
+      key={menuSection.id}
+    />
+  ));
+
+const Menu = ({ id, title, address, imgUrl, reviews, rating, menuSections, onClickMenuItem }) => {
+  if (id && title && address && imgUrl && reviews && rating && menuSections && onClickMenuItem) {
+    return (
+      <div className="restaurant">
+        <MenuHeader
+          title={title}
+          address={address}
+          imgUrl={imgUrl}
+          reviews={reviews}
+          rating={rating}
+        />
+        <div className="menu">
+        {
+          renderMenuSections(menuSections, onClickMenuItem)
+        }
+        </div>
+      </div>
+    );
+  }
+  return null;
 };
 
-const Menu = (/* props object */) => {
-  /* bind the data from the props object to the html template */
-  /* validate the props and render the component IF valid ELSE null */
-  /* remember to call renderMenuSections() to render a list of MenuSection components */
-  /* replace the bottom return statement with the populated html template */
-  return (
-    <div>
-      Menu Component
-    </div>
-  );
-};
-
-/* display name for the component */
 Menu.displayName = 'Menu';
 
 Menu.propTypes = {
-  /* add Proptypes here */
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
+  imgUrl: PropTypes.string.isRequired,
+  reviews: PropTypes.number.isRequired,
+  rating: PropTypes.number.isRequired,
+  menuSections: PropTypes.array.isRequired,
+  onClickMenuItem: PropTypes.func.isRequired,
 };
 
 export default Menu;

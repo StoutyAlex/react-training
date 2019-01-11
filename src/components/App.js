@@ -36,7 +36,9 @@ class App extends Component {
     /* Note: If no items have been selected then do not render the Cart. */
     /* return the populated app template and replace the bottom return statement */
     return (
-      <div className="container">Your App goes here...</div>
+      <div className="container">
+        <Menu {...data} onClickMenuItem={() => {}}/>
+      </div>
     );
   }
 }

@@ -3,16 +3,12 @@ import PropTypes from 'prop-types';
 import MenuItem from './MenuItem';
 
 const renderMenuItems = (menuItems, onClick) => 
-  menuItems.map(menuItem =>
+  menuItems.map(menuItem => (
     <MenuItem
-      key={menuItem.id}
-      id={menuItem.id}
-      title={menuItem.title}
-      description={menuItem.description}
-      price={menuItem.price}
+      {...menuItem}
       onClick={onClick}
-    />
-  );
+      key={menuItem.id}/>
+  ));
 
 const MenuSection = ({ id, title, description, menuItems, onClickMenuItem }) => {
   if ( id && title && description && menuItems && menuItems.length >= 1 && onClickMenuItem ) {
